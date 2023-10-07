@@ -44,6 +44,13 @@ function fs_custom_css()
 {
     ?>
     <style type="text/css">
+        .wp-block-add-to-cart-form .stock {
+            display: none;
+        }
+        .wp-block-woocommerce-product-price .stock{
+            display: inline-block;
+            font-size: 1rem;
+        }
         @media screen and (max-width: 480px) {
             .single_add_to_cart_button {
                 width: calc(100% - 110px) !important;
@@ -143,6 +150,9 @@ function fs_add_price_suffix( $html, $product, $price, $qty ){
     } 
 
     $html .= ' <img src="'. FSM_PLUGIN_URL . "/assets/images/vip-user.png" .'" alt="VIP User" />';
+
+    $html .= wc_get_stock_html( $product );
+
     return $html;
 }
 
