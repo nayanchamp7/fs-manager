@@ -44,8 +44,15 @@ function fs_custom_css()
 {
     ?>
     <style type="text/css">
-        .wp-block-add-to-cart-form .stock {
+        .add-to-cart-container .stock, .wp-block-add-to-cart-form .stock {
             display: none;
+        }
+        .price-wrapper .price {
+            display: inline-block;
+        }
+        .price-wrapper .stock {
+            display: inline-block;
+            margin-left: 10px
         }
         .wp-block-woocommerce-product-price .stock{
             display: inline-block;
