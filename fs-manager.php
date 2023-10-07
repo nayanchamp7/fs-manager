@@ -147,4 +147,18 @@ function fs_add_price_suffix( $html, $product, $price, $qty ){
 }
 
 
+/**
+ * Redirect non-logged in user to login page
+ */
+add_action( 'template_redirect', 'redirect_to_specific_page' );
+
+function redirect_to_specific_page() {
+
+    if ( ! is_user_logged_in() ) {
+        wp_redirect( wp_login_url(), 301 ); 
+        exit;
+    }
+}
+
+
 
