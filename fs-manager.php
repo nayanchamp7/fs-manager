@@ -32,3 +32,18 @@ function fs_custom_login_css()
 }
 add_action('login_head', 'fs_custom_login_css');
 
+function fs_filter_backtoblog_link($html_link) 
+{
+    $html_link = sprintf(
+        '<a href="%s">%s</a>',
+        esc_url( 'https://carmount.com/shop/become-vip/' ),
+        sprintf(
+            /* translators: %s: Site title. */
+            _x( 'BECOME A VIP →', 'site' ),
+        )
+    );
+
+    return $html_link;
+}
+add_filter('login_site_html_link', 'fs_filter_backtoblog_link');
+
