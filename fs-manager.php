@@ -156,9 +156,11 @@ function fs_add_price_suffix( $html, $product, $price, $qty ){
         return;
     } 
 
-    $html .= ' <img src="'. FSM_PLUGIN_URL . "/assets/images/vip-user.png" .'" alt="VIP User" />';
+    if ( $woocommerce_loop['name'] !== 'related' && $woocommerce_loop['name'] !== 'up-sells' ) {
+        $html .= ' <img src="'. FSM_PLUGIN_URL . "/assets/images/vip-user.png" .'" alt="VIP User" />';
 
-    $html .= wc_get_stock_html( $product );
+        $html .= wc_get_stock_html( $product );
+    }
 
     return $html;
 }
